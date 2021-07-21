@@ -61,13 +61,13 @@ show_menu() {
   fi
 
   if [ "$id" == "" ]; then
-    $(tmux display-menu -T "#[align=centre fg=green]Spotify" -x R -y P \
+    $(tmux display-menu -T "#[align=centre fg=green]Spotify" -x C -y C \
         "Open Spotify"     o "run -b 'source \"$CURRENT_DIR/spotify.sh\" && open_spotify'" \
         "" \
         "Close menu"       q "" \
     )
   elif [[ $id == *":episode:"* ]]; then
-    $(tmux display-menu -T "#[align=centre fg=green]Spotify" -x R -y P \
+    $(tmux display-menu -T "#[align=centre fg=green]Spotify" -x C -y C \
         "" \
         "-#[nodim]Episode: $track_name" "" "" \
         "-#[nodim]Podcast: $album"      "" "" \
@@ -83,7 +83,7 @@ show_menu() {
         "Close menu"       q "" \
     )
   else
-    $(tmux display-menu -T "#[align=centre fg=green]Spotify" -x R -y P \
+    $(tmux display-menu -T "#[align=centre fg=green]Spotify" -x C -y C \
         "" \
         "-#[nodim]Track: $track_name" "" "run -b 'printf \"%s\" $quoted_track_name | pbcopy'" \
         "-#[nodim]Artist: $artist"    "" "" \
